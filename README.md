@@ -1,6 +1,6 @@
 time-converting
 =
-### Typesciprt functions to convert local time to UTC and vise versa using [date-fns](https://github.com/date-fns/date-fns)
+### Typescript functions to convert local time to UTC and vise versa using [date-fns](https://github.com/date-fns/date-fns)
 ```typescript
 import { format, parse } from 'date-fns'
 
