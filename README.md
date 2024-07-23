@@ -1,11 +1,13 @@
-
+time-converting
+=
+### Typesciprt functions to convert local time to UTC and vise versa using [date-fns](https://github.com/date-fns/date-fns)
+```typescript
 import { format, parse } from 'date-fns'
 
-const TimeFormat = 'HH:mm:ss'
+const TIME_FORMAT = 'HH:mm:ss'
 
-function utcToLocalTime(utcTime: string | undefined): string | undefined {
-    if (!utcTime) return undefined
-    const date = parse(utcTime, TimeFormat, new Date())
+function utcToLocalTime(utcTime: string): string {
+    const date = parse(utcTime, TIME_FORMAT, new Date())
 
     return format(
       new Date(
@@ -19,14 +21,12 @@ function utcToLocalTime(utcTime: string | undefined): string | undefined {
           date.getMilliseconds()
         )
       ),
-      TimeFormat
+      TIME_FORMAT
     )
   }
 
-
-  function localTimeToUtc(localTime: string | undefined): string | undefined {
-    if (!localTime) return undefined
-    const date = parse(localTime, TimeFormat, new Date())
+  function localTimeToUtc(localTime: string): string {
+    const date = parse(localTime, TIME_FORMAT, new Date())
 
     return format(
       new Date(
@@ -38,6 +38,7 @@ function utcToLocalTime(utcTime: string | undefined): string | undefined {
         date.getUTCSeconds(),
         date.getUTCMilliseconds()
       ),
-      FULL_TIME_FORMAT
+      TIME_FORMAT
     )
   }
+  ```
